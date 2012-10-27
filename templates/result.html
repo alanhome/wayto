@@ -55,13 +55,11 @@
   
   <script type="text/javascript">
 	function foo(){
-	\$.get("https://api.weibo.com/2/place/poi_timeline.json",
-	{"poiid":"B2094654D16CABFE419E","access_token":"2.00fzbvLCOIRzJB87e710d44be2CfhD","source":"1063723722"},
+	\$.get("gettweets",
+	{},
 	function(data){
 	var tl = \$("#tweet_list");
-	var jstr = '{"name":"niu"}';
-	var obj = eval("("+data+")");
-	tl.append(ojb.total_number);
+	tl.append(data);
 	});
 	}
 	
