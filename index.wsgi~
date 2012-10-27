@@ -1,20 +1,15 @@
-import os
-
-#import sae
 import web
         
 urls = (
-    '/', 'Hello'
+    '/(.*)', 'hello'
 )
-
-app_root = os.path.dirname(__file__)
-templates_root = os.path.join(app_root, 'templates')
-render = web.template.render(templates_root)
-
-class Hello:        
-    def GET(self):
-        return  "Hello world"
-
 app = web.application(urls, globals())
-app.run()
-#application = sae.create_wsgi_app(app)
+
+class hello:        
+    def GET(self, name):
+        if not name: 
+            name = 'World'
+        return 'Hello, ' + name + '!'
+
+if __name__ == "__main__":
+    app.run()
