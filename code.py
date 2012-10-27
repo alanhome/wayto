@@ -2,6 +2,8 @@
 import web
 import os
 import json
+import weibo
+
 
 urls = (
     '/$', 'index',
