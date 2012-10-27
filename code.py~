@@ -44,7 +44,7 @@ class index:
     def GET(self):
 		x = web.input().get('query', '')
 		if x != '':
-			return render.result()
+			return render.result(x)
 		return render.index()
 
 
@@ -84,7 +84,7 @@ class get_viewsights_account:
 		try:
 			user = client.get.users__show(screen_name=x)
 			head_pic = user["profile_image_url"].encode("utf8").replace("/50/","/180/")
-			username = x
+			username = user["name"].encode("utf8")
 			description = user["description"].encode("utf8")
 			followers_count = str(user["followers_count"])
 			friends_count  = str(user["friends_count"])

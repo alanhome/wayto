@@ -29,7 +29,7 @@ def get_client():
 
 def get_location(client, query="颐和园"):
 	try:
-		locations = client.get.location__pois__search__by_location(q=query, category="110000")
+		locations = client.get.location__pois__search__by_location(q=query, category="110000",city="0010")
 		lon = locations["pois"][0]["longitude"].encode("utf8")
 		lat = locations["pois"][0]["latitude"].encode("utf8")
 		print "search location sucess"
@@ -76,7 +76,7 @@ class get_viewsights_account:
 	def GET(self):
 		divs = ''
 		# username  location  description  url  username   guanzhu  fensi  weibo
-		template = r'<div class="row" style="background-color:white;height:160px; white;border-radius: 10px;margin-top:20px"><div class="span8"><div class="row" style="height:50px;"><div class="span6"><div class="row"><div class="span3"><div style="font-size:30px;float:left;line-height: 50px;"><B>%s</B></div>&nbsp;&nbsp;&nbsp;<i class="icon-star" style="float:left;margin-top:17px"></i><i class="icon-star" style="float:left;margin-top:17px"></i><i class="icon-star" style="float:left;margin-top:17px"></i><i class="icon-star" style="float:left;margin-top:17px"></i><i class="icon-star-empty" style="float:left;margin-top:17px"></i></div><div class="span3" style="line-height: 50px;"><i class="icon-thumbs-up" style="float:left;margin-top:17px"></i><div style="color:red;float:left;">43241</div><i class="icon-thumbs-down" style="float:left;margin-top:17px;margin-left:10px"></i><div style="color:green;float:left;">3241</div></div></div><div class="row" style="margin-left:3px">%s</div></div><div class="span2"><img src="/static/img/weather.png" /></div></div><div style="clear:both;"></div><div class="row" style="margin-left:3px;margin-top:3px">%s</div></div><div class="span4"><div class="row"><div class="span2" style="width:110px"><img src="%s" width="100px" height="100px" style="margin-top:5px"/></div><div class="span2"><div class="row" style="line-height:50px"><div style="float:left">%s</div><img style="float:left;margin-top:11px;margin-left:5px" src="/static/img/verified.png"/></div><div class="row">%s&nbsp;&nbsp;&nbsp;%s&nbsp;&nbsp;&nbsp;%s</div><div class="row">关注&nbsp;&nbsp;&nbsp;粉丝&nbsp;&nbsp;&nbsp;微博</div><div class="row"><img src="/static/img/focus.jpg" style="margin-top: 10px;" /></div></div></div></div></div>'
+		template = r'<div class="row" style="background-color:white;height:160px; white;border-radius: 10px;margin-top:20px"><div class="span8"><div class="row" style="height:50px;"><div class="span6"><div class="row"><div class="span3"><div style="font-size:30px;float:left;line-height: 50px;"><B>%s</B></div>&nbsp;&nbsp;&nbsp;<i class="icon-star" style="float:left;margin-top:17px"></i><i class="icon-star" style="float:left;margin-top:17px"></i><i class="icon-star" style="float:left;margin-top:17px"></i><i class="icon-star" style="float:left;margin-top:17px"></i><i class="icon-star-empty" style="float:left;margin-top:17px"></i></div><div class="span3" style="line-height: 50px;"><i class="icon-thumbs-up" style="float:left;margin-top:17px"></i><div style="color:red;float:left;">43241</div><i class="icon-thumbs-down" style="float:left;margin-top:17px;margin-left:10px"></i><div style="color:green;float:left;">3241</div></div></div><div class="row" style="margin-left:3px">%s</div></div><div class="span2"><img src="/static/img/weather.png" /></div></div><div style="clear:both;"></div><div class="row" style="margin-left:3px;margin-top:3px">%s</div></div><div class="span4"><div class="row"><div class="span2" style="width:110px"><img src="%s" width="100px" height="100px" style="margin-top:10px"/></div><div class="span2"><div class="row" style="line-height:50px"><div style="float:left">%s</div><img style="float:left;margin-top:11px;margin-left:5px" src="/static/img/verified.png"/></div><div class="row">%s&nbsp;&nbsp;&nbsp;%s&nbsp;&nbsp;&nbsp;%s</div><div class="row">关注&nbsp;&nbsp;&nbsp;粉丝&nbsp;&nbsp;&nbsp;微博</div><div class="row"><img src="/static/img/focus.jpg" style="margin-top: 10px;" /></div></div></div></div></div>'
 		x = web.input().get('query', '颐和园')
 		print x+"---------------aaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
 		client = get_client()
@@ -100,6 +100,7 @@ class get_viewsights_account:
 
 class  get_pics:
 	def GET(self):
+		template = r''
 		x = web.input().get('query', '颐和园')
 		client = get_client()
 		lon, lat = get_location(client,x)
@@ -107,7 +108,7 @@ class  get_pics:
 		tweets_list = jsonobj["statuses"]
 		for tweet in tweets_list:
 			pic_url = tweet["bmiddle_pic"]
-		
+			
 	
 if __name__ == "__main__":
     app.run()
