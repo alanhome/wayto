@@ -2,7 +2,7 @@ import web
 import os
 
 urls = (
-    '/(.*)', 'index'
+    '/()', 'index'
 )
 
 app_root = os.path.dirname(__file__)
