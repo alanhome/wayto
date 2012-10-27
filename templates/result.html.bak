@@ -21,8 +21,8 @@ $def with (query)
         <div class="container">
         	<img src="static/img/wayto_logo_big_counter.png" style="height:30px;weight:60px;margin-top:5px;margin-right:5px;float:left"/>
           <a class="brand" href="/" >微途WAYTO</a>
-          <form class="navbar-search pull-right">
-					  <input type="text" class="search-query" placeholder="$query" style="background-color:white;">
+          <form class="navbar-search pull-right" action="/">
+					  <input name="query" type="text" class="search-query" placeholder="$query" style="background-color:white;">
 					  <button type="submit" class="btn-primary" style="border-radius: 5px;">搜一下</button>
 					</form>
         </div><!--/.nav-collapse -->
@@ -106,6 +106,9 @@ $def with (query)
   </body>
   
   <script type="text/javascript">
+  
+  var page = 1;	
+  	
 	function foo(){
 		\$.get("gettweets",
 		{"query":"$query","page":page},
@@ -126,7 +129,7 @@ $def with (query)
 	
 	foo();
 	
-	var page = 1;
+
 	
 	\$.get("getviewsightsaccount",
 	{"query":"$query"},

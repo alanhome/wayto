@@ -106,6 +106,9 @@ $def with (query)
   </body>
   
   <script type="text/javascript">
+  
+  var page = 1;	
+  	
 	function foo(){
 		\$.get("gettweets",
 		{"query":"$query","page":page},
@@ -124,9 +127,8 @@ $def with (query)
 		page ++;
 	}
 	
-	foo();
-	
-	var page = 1;
+	foo();	
+
 	
 	\$.get("getviewsightsaccount",
 	{"query":"$query"},
