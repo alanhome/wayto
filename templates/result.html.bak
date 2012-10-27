@@ -127,8 +127,7 @@ $def with (query)
 		page ++;
 	}
 	
-	foo();
-	
+	foo();	
 
 	
 	\$.get("getviewsightsaccount",
