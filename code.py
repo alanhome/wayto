@@ -61,6 +61,8 @@ def get_tweets1(query = "颐和园", page ='1'):
 	url += "&q="+query.encode("utf8")
 	url += "&access_token="+access_token
 	url += "&page="+page
+	url += "&count=10"
+	print url
 	ans = urllib.urlopen(url).read()
 	return ans
 
@@ -123,7 +125,7 @@ class get_viewsights_account:
 class  get_pics:
 	def GET(self):
 		divs = ''
-		template = r'<div class="row" style="height:230px"><div name = "tweet" style="background-color: white;border-radius: 10px;border-width: 2px;margin-top:10px;width:230px;height:230px;float:left;margin-left:10px;"><img src="%s" style="margin-left:15px;margin-top:15px;width:200px;height:200px;"/></div><div name = "tweet" style="background-color: white;border-radius: 10px;border-width: 2px;margin-top:10px;width:230px;height:230px;float:left;margin-left:10px;"><img src="%s" style="margin-left:15px;margin-top:15px;width:200px;height:200px;"/></div></div>'
+		template = r'<div class="row" style="height:274px"><div name = "tweet" style="background-color: white;border-radius: 10px;border-width: 2px;margin-top:10px;width:230px;height:274px;float:left;margin-left:10px;"><img src="%s" style="margin-left:15px;margin-top:30px;width:200px;height:200px;"/></div><div name = "tweet" style="background-color: white;border-radius: 10px;border-width: 2px;margin-top:10px;width:230px;height:274px;float:left;margin-left:10px;"><img src="%s" style="margin-left:15px;margin-top:30px;width:200px;height:200px;"/></div></div>'
 		x = web.input().get('query', '颐和园')
 		page = web.input().get('page','1')
 		client = get_client()
