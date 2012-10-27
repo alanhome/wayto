@@ -97,7 +97,7 @@ $def with (query)
 	  </div>
 	  <div class = "span12">
 	  	<div class="row">		
-				<button type="button" style="width:960px;margin-top:10px" id="testButton" onclick = "foo()">Click me!</button>
+				<button type="button" style="width:960px;margin-top:10px;margin-bottom:10px" id="testButton" onclick = "foo()">更多</button>
 			</div>
 		</div>  
 	</div>
@@ -108,35 +108,31 @@ $def with (query)
   <script type="text/javascript">
 	function foo(){
 		\$.get("gettweets",
-		{"query":"$query"},
+		{"query":"$query","page":page},
 		function(data){
 		var tl = \$("#tweet_list");
 		tl.append(data);
 		});
 	
 		\$.get("getpics",
-		{"query":"$query"},
+		{"query":"$query","page":page},
 		function(data){
 		var tl = \$("#photo_wall");
 		tl.append(data);
 		});
+		
+		page ++;
 	}
 	
 	foo();
 	
+	var page = 1;
 	
 	\$.get("getviewsightsaccount",
 	{"query":"$query"},
 	function(data){
 	var tl = \$("#brief_info");
 	tl.html(data);
-	});
-	
-	\$.get("getpics",
-	{"query":"$query"},
-	function(data){
-	var tl = \$("#photo_wall");
-	tl.append(data);
 	});
 	
 	

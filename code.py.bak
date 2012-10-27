@@ -60,7 +60,7 @@ def get_tweets1(query = "颐和园", page ='1'):
 	url += "&time="+str(tm)
 	url += "&q="+query.encode("utf8")
 	url += "&access_token="+access_token
-	url += "&page="+str(page)
+	url += "&page="+page
 	url += "&count=10"
 	print url
 	ans = urllib.urlopen(url).read()
