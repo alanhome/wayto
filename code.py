@@ -100,14 +100,19 @@ class get_viewsights_account:
 
 class  get_pics:
 	def GET(self):
-		template = r''
+		divs = ''
+		template = r'<div class="row" style="height:230px"><div name = "tweet" style="background-color: white;border-radius: 10px;border-width: 2px;margin-top:10px;width:230px;height:230px;float:left;margin-left:10px;"><img src="%s" style="margin-left:15px;margin-top:15px;width:200px;height:200px;"/></div><div name = "tweet" style="background-color: white;border-radius: 10px;border-width: 2px;margin-top:10px;width:230px;height:230px;float:left;margin-left:10px;"><img src="%s" style="margin-left:15px;margin-top:15px;width:200px;height:200px;"/></div></div>'
 		x = web.input().get('query', '颐和园')
 		client = get_client()
 		lon, lat = get_location(client,x)
 		jsonobj = client.get.place__nearby__photos(long= lon,lat=lat)
 		tweets_list = jsonobj["statuses"]
-		for tweet in tweets_list:
-			pic_url = tweet["bmiddle_pic"]
+		l = len(tweets_list)
+		for i in range(0,l,2):
+			pic_url1 = tweets_list[i]["bmiddle_pic"].encode("utf8")
+			pic_url2 = tweets_list[i+1]["bmiddle_pic"].encode("utf8")
+			divs +=  template%(pic_url1, pic_url2)
+		return divs
 			
 	
 if __name__ == "__main__":

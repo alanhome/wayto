@@ -66,7 +66,7 @@ $def with (query)
 				<div class="span4">
 					<div class="row">
 						<div class="span2" style="width:110px">
-							<img src="http://tp2.sinaimg.cn/2405470265/180/5638838951/1" width="100px" height="100px" style="margin-top:5px"/>
+							<img src="http://tp2.sinaimg.cn/2405470265/180/5638838951/1" width="100px" height="100px" style="margin-top:10px"/>
 						</div>
 						<div class="span2">
 							<div class="row" style="line-height:50px">
@@ -89,34 +89,6 @@ $def with (query)
 	  <div class = "span12">
 		<div class= "row">
 		  <div id = "tweet_list" class="span6">
-			
-			<div class= "row" name = "tweet" style="background-color: white;border-radius: 10px;border-width: 2px;margin-top:10px">
-				<div class="span2" style="width:100px">
-				<img src="http://tp4.sinaimg.cn/1703635447/180/5643903510/1" width="100px" height="100px" style="margin-top:5px"/>
-				<div style="text-align:center;">颐和园</div>
-				</div>
-			  <div class="span4">
-			  <p style="font-family: 微软雅黑;font-size: 12px;margin-top:3px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;大众点评网-北京生活： 下月起,颐和园、天坛、北京动物园、北海将执行淡季票价。香山因举办香山红叶文化节,调整淡季票价日期将推迟到11月16日。颐和园门票从30元回落20元,天坛公园从15元降至10元,北海公园从10元变为5元,北京动物园从15元调至10元,而香山公园自16日开始降到5元,其他市属公园门票价格不变。</p>
-				</div>
-			</div>
-			<div class= "row" name = "tweet" style="background-color: white;border-radius: 10px;border-width: 2px;margin-top:10px">
-				<div class="span2" style="width:100px">
-				<img src="http://tp4.sinaimg.cn/1703635447/180/5643903510/1" width="100px" height="100px" style="margin-top:15px"/>
-				</div>
-			  <div class="span4">
-			  <p style="font-family: 微软雅黑;font-size: 12px;margin-top:3px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;大众点评网-北京生活： 下月起,颐和园、天坛、北京动物园、北海将执行淡季票价。香山因举办香山红叶文化节,调整淡季票价日期将推迟到11月16日。颐和园门票从30元回落20元,天坛公园从15元降至10元,北海公园从10元变为5元,北京动物园从15元调至10元,而香山公园自16日开始降到5元,其他市属公园门票价格不变。</p>
-				</div>
-			</div>
-			<div class= "row" name = "tweet" style="background-color: white;border-radius: 10px;border-width: 2px;margin-top:10px">
-				<div class="span2" style="width:100px">
-				<img src="http://tp4.sinaimg.cn/1703635447/180/5643903510/1" width="100px" height="100px" style="margin-top:15px"/>
-				</div>
-			  <div class="span4">
-			  <p style="font-family: 微软雅黑;font-size: 12px;margin-top:3px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;大众点评网-北京生活： 下月起,颐和园、天坛、北京动物园、北海将执行淡季票价。香山因举办香山红叶文化节,调整淡季票价日期将推迟到11月16日。颐和园门票从30元回落20元,天坛公园从15元降至10元,北海公园从10元变为5元,北京动物园从15元调至10元,而香山公园自16日开始降到5元,其他市属公园门票价格不变。</p>
-				</div>
-			</div>
-
-			
 		  </div>
 		  <div class="span6">
 		  	<div class="row" style="height:230px">
@@ -138,17 +110,19 @@ $def with (query)
   
   <script type="text/javascript">
 	function foo(){
-	\$.get("getviewsightsaccount",
-	{},
+	\$.get("gettweets",
+	{"query":"$query"},
 	function(data){
 	var tl = \$("#tweet_list");
 	tl.append(data);
 	});
 	}
 	
+	foo();
+	
 	
 	\$.get("getviewsightsaccount",
-	{},
+	{"query":"$query"},
 	function(data){
 	var tl = \$("#brief_info");
 	tl.html(data);
