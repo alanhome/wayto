@@ -87,7 +87,7 @@
 		</div>
 	  <div class = "span12">
 		<div class= "row">
-		  <div id = "tweet_list" class="span6" style="width:440px">
+		  <div id = "tweet_list" class="span6">
 			
 			<div class= "row" name = "tweet" style="background-color: white;border-radius: 10px;border-width: 2px;margin-top:10px">
 				<div class="span2" style="width:100px">
@@ -120,15 +120,15 @@
 		  <div class="span6">
 		  	<div class="row">
 			  	<div class="span3" style="margin-left:30px">
-			  		<div class= "row" name = "tweet" style="background-color: white;border-radius: 10px;border-width: 2px;margin-top:10px;width:220px">
+			  		<div class= "row" name = "tweet" style="background-color: white;border-radius: 10px;border-width: 2px;margin-top:10px;">
 			  			<img class="wallimg" src="http://ww4.sinaimg.cn/bmiddle/8f609039jw1dy8e8edn68j.jpg" style="margin-left:10px"/>
 			  		</div>
 			  	</div>
 			  	<div class="span3" style="margin-left:10px">
-			  		<div class= "row" name = "tweet" style="background-color: white;border-radius: 10px;border-width: 2px;margin-top:10px;width:220px">
+			  		<div class= "row" name = "tweet" style="background-color: white;border-radius: 10px;border-width: 2px;margin-top:10px;">
 			  			<img class="wallimg" src="http://ww3.sinaimg.cn/bmiddle/8f609039jw1dy9s1vhcorj.jpg" style="margin-left:10px"/>
 			  		</div>
-			  		<div class= "row" name = "tweet" style="background-color: white;border-radius: 10px;border-width: 2px;margin-top:10px;width:220px">
+			  		<div class= "row" name = "tweet" style="background-color: white;border-radius: 10px;border-width: 2px;margin-top:10px;">
 			  			<img class="wallimg" src="http://ww3.sinaimg.cn/bmiddle/8f609039jw1dy8epiz7cqj.jpg" style="margin-left:10px"/>
 			  		</div>
 			  	</div>
@@ -151,6 +151,14 @@
 	tl.append(data);
 	});
 	}
+	
+	
+	\$.get("getviewsightsaccount",
+	{},
+	function(data){
+	var tl = \$("#brief_info");
+	tl.html(data);
+	});
 	
 	
   </script>
