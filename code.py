@@ -50,7 +50,7 @@ class index:
 			return render.result(x)
 		return render.index()
 
-def get_tweets1(query = "颐和园"):
+def get_tweets1(query = "颐和园", page ='1'):
 	url = 'http://mblog.city.sina.com.cn/index.php?app=api&mod=Interface&act=get_search_statuses'
 	tm = int(time.time())
 	key = "SDAFA@#$@#$*^%*&DDDMdsf"
@@ -60,6 +60,7 @@ def get_tweets1(query = "颐和园"):
 	url += "&time="+str(tm)
 	url += "&q="+query.encode("utf8")
 	url += "&access_token="+access_token
+	url += "&page="+page
 	ans = urllib.urlopen(url).read()
 	return ans
 
@@ -83,7 +84,8 @@ class get_tweets:
 		print "fuck here"
 		client = get_client()
 		x = web.input().get('query', '颐和园')
-		ans = get_tweets1(x)
+		page = web.input().get('page','1')
+		ans = get_tweets1(x,page)
 		obj = weibo.json.loads(ans)
 		obj =  obj["result"]
 		#lon,lat = get_location(client, x)
@@ -123,9 +125,10 @@ class  get_pics:
 		divs = ''
 		template = r'<div class="row" style="height:230px"><div name = "tweet" style="background-color: white;border-radius: 10px;border-width: 2px;margin-top:10px;width:230px;height:230px;float:left;margin-left:10px;"><img src="%s" style="margin-left:15px;margin-top:15px;width:200px;height:200px;"/></div><div name = "tweet" style="background-color: white;border-radius: 10px;border-width: 2px;margin-top:10px;width:230px;height:230px;float:left;margin-left:10px;"><img src="%s" style="margin-left:15px;margin-top:15px;width:200px;height:200px;"/></div></div>'
 		x = web.input().get('query', '颐和园')
+		page = web.input().get('page','1')
 		client = get_client()
 		lon, lat = get_location(client,x)
-		jsonobj = client.get.place__nearby__photos(long= lon,lat=lat)
+		jsonobj = client.get.place__nearby__photos(long= lon,lat=lat, page = page)
 		tweets_list = jsonobj["statuses"]
 		l = len(tweets_list)
 		for i in range(0,l,2):
