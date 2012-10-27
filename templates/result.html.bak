@@ -1,3 +1,4 @@
+$def with (query)
 <!DOCTYPE html>
 <html>
   <head>
@@ -20,7 +21,7 @@
         <div class="container">
           <a class="brand" href="#">微途WAYTO</a>
           <form class="navbar-search pull-right">
-					  <input type="text" class="search-query" placeholder="景点" style="background-color:white;">
+					  <input type="text" class="search-query" placeholder="$query" style="background-color:white;">
 					  <button type="submit" class="btn-primary" style="border-radius: 5px;">搜一下</button>
 					</form>
         </div><!--/.nav-collapse -->
@@ -65,7 +66,7 @@
 				<div class="span4">
 					<div class="row">
 						<div class="span2" style="width:110px">
-							<img src="http://tp2.sinaimg.cn/2405470265/180/5638838951/1" width="100px" height="100px" style="margin-top:5px"/>
+							<img src="http://tp2.sinaimg.cn/2405470265/180/5638838951/1" width="100px" height="100px" style="margin-top:10px"/>
 						</div>
 						<div class="span2">
 							<div class="row" style="line-height:50px">
@@ -137,17 +138,19 @@
   
   <script type="text/javascript">
 	function foo(){
-	\$.get("getviewsightsaccount",
-	{},
+	\$.get("gettweets",
+	{"query":"$query"},
 	function(data){
 	var tl = \$("#tweet_list");
 	tl.append(data);
 	});
 	}
 	
+	foo();
+	
 	
 	\$.get("getviewsightsaccount",
-	{},
+	{"query":"$query"},
 	function(data){
 	var tl = \$("#brief_info");
 	tl.html(data);
