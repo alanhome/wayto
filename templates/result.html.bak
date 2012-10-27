@@ -6,6 +6,13 @@
     <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<script src="http://code.jquery.com/jquery-latest.js"></script>
 	<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+	<style>
+	.wallimg{ 
+		height: expression(this.width > 160 ? this.height = this.height * 160 / this.width : "auto");
+		width: expression(this.width > 160 ? "160px" : "auto");
+		max-width:200px;
+	}	
+	</style>
   </head>
   <body style="background-color: #F1F1F1;">
 	<div class="navbar navbar-inverse navbar-fixed-top">
@@ -80,7 +87,7 @@
 		</div>
 	  <div class = "span12">
 		<div class= "row">
-		  <div id = "tweet_list" class="span6">
+		  <div id = "tweet_list" class="span6" style="width:440px">
 			
 			<div class= "row" name = "tweet" style="background-color: white;border-radius: 10px;border-width: 2px;margin-top:10px">
 				<div class="span2" style="width:100px">
@@ -111,7 +118,21 @@
 			
 		  </div>
 		  <div class="span6">
-			<h2>用户图片</h2>
+		  	<div class="row">
+			  	<div class="span3" style="margin-left:30px">
+			  		<div class= "row" name = "tweet" style="background-color: white;border-radius: 10px;border-width: 2px;margin-top:10px;width:220px">
+			  			<img class="wallimg" src="http://ww4.sinaimg.cn/bmiddle/8f609039jw1dy8e8edn68j.jpg" style="margin-left:10px"/>
+			  		</div>
+			  	</div>
+			  	<div class="span3" style="margin-left:30px">
+			  		<div class= "row" name = "tweet" style="background-color: white;border-radius: 10px;border-width: 2px;margin-top:10px;width:220px">
+			  			<img class="wallimg" src="http://ww3.sinaimg.cn/bmiddle/8f609039jw1dy9s1vhcorj.jpg" style="margin-left:10px"/>
+			  		</div>
+			  		<div class= "row" name = "tweet" style="background-color: white;border-radius: 10px;border-width: 2px;margin-top:10px;width:220px">
+			  			<img class="wallimg" src="http://ww3.sinaimg.cn/bmiddle/8f609039jw1dy8epiz7cqj.jpg" style="margin-left:10px"/>
+			  		</div>
+			  	</div>
+		  	</div>
 			
 		  </div>
 		</div>
