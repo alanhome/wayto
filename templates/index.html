@@ -1,57 +1,35 @@
 <!DOCTYPE html>
 <html>
+  <script type="text/javascript">
+	function dosubmit(){
+	var query=document.getElementById("query").value;
+	
+	}
+  </script>
   <head>
     <title>微途</title>
-    <!-- Bootstrap -->
     <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   </head>
-  <body class>
-	<div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="brand" href="#">微途WAYTO</a>
-          <form class="navbar-form pull-right">
-            <input class="span2" type="text" placeholder="景点">
-            <button type="submit" class="btn">搜一下</button>
-          </form>
-        </div><!--/.nav-collapse -->
-      </div>
-    </div>
-
-	<div class="container">
-	  <div>
-		<form class="navbar-form pull-left">
-		  <input class="span3" type="text" placeholder="景点">
-		  <button type="submit" class="btn">搜索</button>
-		</form>
-	  </div>
-
-	  <div class = "span12">
-		<div class= "row">
-		  <div class="span6">
-			<h2>用户微博</h2>
-			
-			<div class= "row">
-			  <p>大众点评网-北京生活： 下月起,颐和园、天坛、北京动物园、北海将执行淡季票价。香山因举办香山红叶文化节,调整淡季票价日期将推迟到11月16日。颐和园门票从30元回落20元,天坛公园从15元降至10元,北海公园从10元变为5元,北京动物园从15元调至10元,而香山公园自16日开始降到5元,其他市属公园门票价格不变。</p>
-			</div>
-			
-			<div class = "row">
-			  财经网：【观点·博客·王海】北京西苑靠颐和园东门，两年前开条商业街，灰色建筑，有复古之气。餐饮业进街要求必须强势品牌，如下店面有幸进入：味多美、麦当劳、肯德基、赛百味、吉野家、必胜客、天禄寿司、DQ、呷哺呷哺和星巴克。本土企业除一家，几乎全军覆灭。本土企业举步艰难。全文http://t.cn/zluBxHZ
-			</div>
-			
-		  </div>
-		  <div class="span6">
-			<h2>用户图片</h2>
-			
+  <body >
+	<div class="hero-unit">
+      <h1>微途 WAYTO</h1>
+	  <div class= "row-fluid">
+		<div class="span6">
+		  <div class = "span12 offset1">
+            <p>搜寻景点微博信息，您的旅行助手 :-)</p>
 		  </div>
 		</div>
-	  </div>
+      </div>
 	</div>
-    <footer>
-    </footer>
+	<form method="get" action = "/">
+	  <div class="span6 offset5">
+		<div class="input-append">
+		  <input class="span5" id="query" size="16" type="text"><button class="btn" type="button">搜一下</button>
+	  </div>
+	</form>
 	
-	
-<script src="http://code.jquery.com/jquery-latest.js"></script>
-<script src="/static/bootstrap/js/bootstrap.min.js"></script>
-</body>
+	</div>
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+  </body>
 </html>

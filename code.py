@@ -2,7 +2,7 @@ import web
 import os
 
 urls = (
-    '/()', 'index'
+    '/$', 'index'
 )
 
 app_root = os.path.dirname(__file__)
@@ -11,8 +11,11 @@ render = web.template.render(templates_root)
 app = web.application(urls, globals())
 
 class index:        
-    def GET(self, name):
-        return render.index()
+    def GET(self):
+		x = web.input().get('query', '')
+		if x != '':
+			return render.result()
+		return render.index()
 
 if __name__ == "__main__":
     app.run()
