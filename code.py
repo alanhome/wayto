@@ -3,13 +3,16 @@ import web
 import os
 import json
 import weibo
+import urllib
 from weibo import APIClient
+import time
+import hashlib
 
 urls = (
     '/$', 'index',
 	'/getpics$','get_pics',
-	'/gettweets','get_tweets',
-	'/getviewsightsaccount','get_viewsights_account'
+	'/gettweets$','get_tweets',
+	'/getviewsightsaccount$','get_viewsights_account'
 )
 
 app_root = os.path.dirname(__file__)
@@ -47,6 +50,18 @@ class index:
 			return render.result(x)
 		return render.index()
 
+def get_tweets1(query = "颐和园"):
+	url = 'http://mblog.city.sina.com.cn/index.php?app=api&mod=Interface&act=get_search_statuses'
+	tm = int(time.time())
+	key = "SDAFA@#$@#$*^%*&DDDMdsf"
+	token = hashlib.md5(str(tm)+key).hexdigest()
+	access_token = "123"
+	url += "&token="+token
+	url += "&time="+str(tm)
+	url += "&q="+query.encode("utf8")
+	url += "&access_token="+access_token
+	ans = urllib.urlopen(url).read()
+	return ans
 
 def fill_tweet_template(jsonobj):
 	divs = ''   
@@ -65,11 +80,16 @@ def fill_tweet_template(jsonobj):
 
 class get_tweets:
 	def GET(self):
+		print "fuck here"
 		client = get_client()
 		x = web.input().get('query', '颐和园')
-		lon,lat = get_location(client, x)
-		jsonobj = client.get.place__nearby_timeline(long=lon,lat= lat)
-		divs = fill_tweet_template(jsonobj)
+		ans = get_tweets1(x)
+		obj = weibo.json.loads(ans)
+		obj =  obj["result"]
+		#lon,lat = get_location(client, x)
+		#jsonobj = client.get.place__nearby_timeline(long=lon,lat= lat)
+		#divs = fill_tweet_template(jsonobj)
+		divs =  fill_tweet_template(obj)
 		return divs
 
 class get_viewsights_account:
