@@ -4,6 +4,8 @@
     <title>微途</title>
     <!-- Bootstrap -->
     <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<script src="/static/bootstrap/js/bootstrap.min.js"></script>
   </head>
   <body >
 	<div class="navbar navbar-inverse navbar-fixed-top">
@@ -28,10 +30,10 @@
 
 	  <div class = "span12">
 		<div class= "row">
-		  <div class="span6">
+		  <div id = "tweet_list" class="span6">
 			<h2>用户微博</h2>
 			
-			<div class= "row">
+			<div class= "row" name = "tweet">
 			  <p>大众点评网-北京生活： 下月起,颐和园、天坛、北京动物园、北海将执行淡季票价。香山因举办香山红叶文化节,调整淡季票价日期将推迟到11月16日。颐和园门票从30元回落20元,天坛公园从15元降至10元,北海公园从10元变为5元,北京动物园从15元调至10元,而香山公园自16日开始降到5元,其他市属公园门票价格不变。</p>
 			</div>
 			
@@ -47,11 +49,21 @@
 		</div>
 	  </div>
 	</div>
-    <footer>
-    </footer>
+	<button type="button" id="testButton" onclick = "foo()">Click me!</button>  
+	 
+  </body>
+  
+  <script type="text/javascript">
+	function foo(){
+	\$.get('testp',{},function(data){
+	var tl = \$("#tweet_list");
+	var jstr = '{"name":"niu"}';
+	var obj = eval("("+data+")");
+	tl.append(ojb.total_number);
+	});
+	}
 	
 	
-<script src="http://code.jquery.com/jquery-latest.js"></script>
-<script src="/static/bootstrap/js/bootstrap.min.js"></script>
-</body>
+  </script>
+  
 </html>
