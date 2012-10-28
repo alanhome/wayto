@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <script type="text/javascript">
+	function dosubmit(){
+	var query=document.getElementById("query").value;
+	
+	}
+  </script>
+  <head>
+    <title>微途</title>
+    <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body >
+	<div class="hero-unit">
+      <h1>微途 WAYTO</h1>
+	  <div class= "row-fluid">
+		<div class="span6">
+		  <div class = "span12 offset1">
+            <p>搜寻景点微博信息，您的旅行助手 :-)</p>
+		  </div>
+		</div>
+      </div>
+	</div>
+	<form method="get" action = "/">
+	  <div class="span8 offset6">
+			<div class="input-append">
+			  <input class="span5" id="query" name="query" size="16" type="text"/><button type="submit" class="btn" >搜一下</button>
+		  </div>
+		  <div>
+		  	热门: <a href="/?query=颐和园">颐和园</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/?query=北海公园">北海公园</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/?query=香山公园">香山公园</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/?query=798艺术中心">798艺术中心</a>
+		  </div>
+	  </div>
+	</form>
+	
+	</div>
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+  </body>
+</html>

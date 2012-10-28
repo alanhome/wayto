@@ -82,21 +82,18 @@ $def with (query)
 								<div style="float:left">颐和园</div><img style="float:left;margin-top:11px;margin-left:5px" src="/static/img/verified.png"/>
 							</div>
 							<div class="row">
-								<div>
+								<div style="float:left;">
 									<p>281</p>
 									<p>关注</p>
 								</div>
-								<div style="float:left">
+								<div style="float:left;margin-left:5px">
 									<p>6995</p>
 									<p>粉丝</p>
 								</div>
-								<div style="float:left">
+								<div style="float:left;margin-left:5px">
 									<p>2381</p>
 									<p>微博</p>
 								</div>
-							</div>
-							<div class="row">
-								关注&nbsp;&nbsp;&nbsp;粉丝&nbsp;&nbsp;&nbsp;微博
 							</div>
 							<div class="row">
 								<img src="/static/img/focus.jpg" style="margin-top: 10px;" />
@@ -149,12 +146,12 @@ $def with (query)
 	foo();	
 
 	
-	\$.get("getviewsightsaccount",
-	{"query":"$query"},
-	function(data){
-	var tl = \$("#brief_info");
-	tl.html(data);
-	});
+	//\$.get("getviewsightsaccount",
+	//{"query":"$query"},
+	//function(data){
+	//var tl = \$("#brief_info");
+	//tl.html(data);
+	//});
 	
 	
   </script>
