@@ -82,7 +82,7 @@ $def with (query)
 								<div style="float:left">颐和园</div><img style="float:left;margin-top:11px;margin-left:5px" src="/static/img/verified.png"/>
 							</div>
 							<div class="row">
-								<div>
+								<div style="float:left">
 									<p>281</p>
 									<p>关注</p>
 								</div>
@@ -149,12 +149,12 @@ $def with (query)
 	foo();	
 
 	
-	//\$.get("getviewsightsaccount",
-	//{"query":"$query"},
-	//function(data){
-	//var tl = \$("#brief_info");
-	//tl.html(data);
-	//});
+	\$.get("getviewsightsaccount",
+	{"query":"$query"},
+	function(data){
+	var tl = \$("#brief_info");
+	tl.html(data);
+	});
 	
 	
   </script>

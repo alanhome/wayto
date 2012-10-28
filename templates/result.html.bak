@@ -90,7 +90,7 @@ $def with (query)
 									<p>6995</p>
 									<p>粉丝</p>
 								</div>
-								<div>
+								<div style="float:left">
 									<p>2381</p>
 									<p>微博</p>
 								</div>
@@ -149,12 +149,12 @@ $def with (query)
 	foo();	
 
 	
-	//\$.get("getviewsightsaccount",
-	//{"query":"$query"},
-	//function(data){
-	//var tl = \$("#brief_info");
-	//tl.html(data);
-	//});
+	\$.get("getviewsightsaccount",
+	{"query":"$query"},
+	function(data){
+	var tl = \$("#brief_info");
+	tl.html(data);
+	});
 	
 	
   </script>
